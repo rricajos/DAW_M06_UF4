@@ -1,0 +1,26 @@
+[
+  {
+      "id": 1,
+      "nombre": "Juan",
+      "primerApellido": "Pérez",
+      "email": "juan.perez@example.com"
+  },
+  {
+      "id": 2,
+      "nombre": "María",
+      "primerApellido": "López",
+      "email": "maria.lopez@example.com"
+  },
+  {
+      "id": 3,
+      "nombre": "Carlos",
+      "primerApellido": "González",
+      "email": "carlos.gonzalez@example.com"
+  },
+  {
+      "id": 4,
+      "nombre": "Ana",
+      "primerApellido": "Martínez",
+      "email": "ana.martinez@example.com"
+  }
+]
