@@ -1,18 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Listado de Usuarios</title>
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
-    <h1>Gestión de Usuarios</h1>
-    <button id="btnCargarUsuarios">Cargar Usuarios</button>
-    <div id="contenedorUsuarios"></div>
+    <link rel="stylesheet" href="css/estilos.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Gestión de Usuarios</h1>
+      <p>
+        Se desea que apareza un listado con todos los datos de los usuarios
+        almacenados en un fichero JSON con la siguiente información: número
+        identificador del usuario, el nombre del usuario, el primer apellido y
+        el email.
+      </p>
+      <p>
+        Escribe el código necesario para que pulsando un botón situado en el
+        fichero index.html aparezca el listado con toda la información de cada
+        uno de los usuario en el propio fichero index.html.
+      </p>
+      <p>
+        Cada usuario debe estar en una línea diferente. Las líneas pares e
+        impares deben tener un color de fondo distinto.
+      </p>
+      <button id="btnCargarUsuarios">Cargar Usuarios (AJAX)</button>
+      <div id="contenedorUsuarios"></div>
+    </main>
 
     <script src="js/ModeloUsuario.js"></script>
-    <script src="js/vista.js"></script>
+    <script src="js/VistaUsuario.js"></script>
     <script src="js/ControladorUsuario.js"></script>
-</body>
+    <script>
+      addEventListener("DOMContentLoaded", (event) => {
+        // El boton de carga se encargará de solicitar los datos
+        document
+          .getElementById("btnCargarUsuarios")
+          .addEventListener("click", function () {
+            // El usuario podra percibir que se hará la solicitud
+            ocultarUsuarios();
+
+            // El constructor del controlador recibe un callback con el datos/usuarios.json por XHR
+            let controlador = new ControladorUsuario((users) => {
+              console.log(
+                "Usuarios disponibles en datos/usuarios.json:",
+                users
+              );
+
+              // Mostramos los usuarios sin exponer la solicitud
+              mostrarUsuarios(controlador.users);
+            });
+          });
+      });
+    </script>
+  </body>
 </html>

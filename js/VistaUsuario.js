@@ -1,5 +1,11 @@
 // vista.js: Manipulación del DOM para mostrar los datos
 
+
+function ocultarUsuarios() {
+  const contenedor = document.getElementById("contenedorUsuarios");
+  contenedor.innerHTML = '';
+}
+
 // Función para generar y mostrar la tabla de usuarios
 function mostrarUsuarios(usuarios) {
   const contenedor = document.getElementById("contenedorUsuarios");
